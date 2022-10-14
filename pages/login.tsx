@@ -88,7 +88,7 @@ export default function LoginPage() {
 	<ThemeProvider theme={theme}>
 			<Container>
 					<CssBaseline />
-							<Box sx={{ mt: 8, display: 'flex', flexDirection: 'column', alignItens: 'center' }}>
+							<Box sx={{ mt: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 									<Typography component='h1' variant='h5'>
 											Login
 									</Typography>
@@ -98,22 +98,24 @@ export default function LoginPage() {
 								<button onClick={() => setContador(contador + 1)}>Muda o Contador</button>
 
 							<Box component='form' onSubmit={handleSubmit}>
-									<TextField margin='normal' required fullWidth id='email' label='Digite o e-mail' name='email' autoComplete='email' autoFocus />
-									<TextField margin='normal' required fullWidth id='password' type='password' label='Digite a senha' name='password' autoComplete='current-password' autoFocus />
-									<FormControlLabel control={<Checkbox value='remember' color='primary' />} label='lembrar de mim' />
-									<Button
-										type='submit'
-										fullWidth 
-										variant='contained'
-										sx={{mt: 3, mb: 2}}
-									>
-										Entrar
-									</Button>
+								<TextField margin='normal' required fullWidth id='email' label='Digite o e-mail' name='email' autoComplete='email' autoFocus />
+								<TextField margin='normal' required fullWidth id='password' type='password' label='Digite a senha' name='password' autoComplete='current-password' autoFocus />
+								<FormControlLabel control={<Checkbox value='remember' color='primary' />} label='lembrar de mim' />
+								<Button
+									type='submit'
+									fullWidth 
+									variant='contained'
+									sx={{mt: 3, mb: 2}}
+								>
+									Entrar
+								</Button>
+							</Box>
+							<Box sx={{ mt: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+								<div>Login Page - C6 bank</div>
+								<Copyright site='www.avanade.com.br' sx={{ mt: 8, mb: 4}}></Copyright>
 							</Box>
 			</Container>
-			<div>Login Page - C6 bank</div>
 					
-			<Copyright site='www.avanade.com.br'></Copyright>
 
 	</ThemeProvider>
   )
