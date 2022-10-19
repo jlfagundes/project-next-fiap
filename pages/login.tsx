@@ -23,7 +23,7 @@ export default function LoginPage() {
 	const [name, setName] = useState('');
 	const [error, setError] = useState<boolean>(false);
 	const [errorMessage, setErrorMessage] = useState('');
-	const [email, setEmail] = useState<string | FormDataEntryValue | undefined>('');
+	const [email, setEmail] = useState<string | FormDataEntryValue | undefined | null>('');
 	const [password, setPassword] = useState<string | undefined | null | FormDataEntryValue>('');
 	const [open, setOpen] = useState<boolean>(false)
 
@@ -43,7 +43,7 @@ export default function LoginPage() {
 	// }, [name]);
 
 	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-		event.preventDefault(); // previne o formulario enviar o form (recarregar a página)
+		// event.preventDefault(); // previne o formulario enviar o form (recarregar a página)
 		const data = new FormData(event.currentTarget); // captura todos os campos da tag Form
 		console.log(data.get('email'));
 		setName(data.get('email'));

@@ -23,7 +23,7 @@ import Snackbar from '../components/utils/Snackbar';
 export default function RegisterPage() {
 
   const [name, setName] = useState<string | undefined | null | FormDataEntryValue>('');
-  const [email, setEmail] = useState<string | FormDataEntryValue | undefined>('');
+  const [email, setEmail] = useState<string | FormDataEntryValue | undefined | null>('');
   const [password, setPassword] = useState<string | undefined | null | FormDataEntryValue>('');
   const [confirmPassword, setConfirmPassword] = useState<string | undefined | null | FormDataEntryValue>('');
   const [isValidPassword, setIsValidPassword] = useState<boolean>(true);
