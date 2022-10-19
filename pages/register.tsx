@@ -19,6 +19,7 @@ import {
 } from "@mui/material";
 import Copyright from '../components/utils/Copyright';
 import Snackbar from '../components/utils/Snackbar';
+import Link from 'next/link';
 
 export default function RegisterPage() {
 
@@ -27,7 +28,8 @@ export default function RegisterPage() {
   const [password, setPassword] = useState<string | undefined | null | FormDataEntryValue>('');
   const [confirmPassword, setConfirmPassword] = useState<string | undefined | null | FormDataEntryValue>('');
   const [isValidPassword, setIsValidPassword] = useState<boolean>(true);
-  const [open, setOpen] = useState<boolean>(false)
+  const [open, setOpen] = useState<boolean>(false);
+  const [show, setShow] = useState<boolean>(false);
   
   const theme = createTheme();
   
@@ -75,11 +77,22 @@ export default function RegisterPage() {
 
           <TextField margin='normal' required fullWidth id='email' label='Digite o e-mail' name='email' autoComplete='email' autoFocus />
 
-					<TextField margin='normal' required fullWidth id='password' type='password' label='Digite a senha' name='password' autoComplete='current-password' autoFocus />
-					
+					<TextField 
+            margin='normal'
+            required
+            fullWidth
+            id='password'
+            type={show ? 'text' : 'password'}
+            label='Digite a senha'
+            name='password'
+            autoComplete='current-password'
+            autoFocus
+          />
+					<Button onClick={() => setShow(!show)}>mostrar</Button>
           <TextField margin='normal' required fullWidth id='confirmPassword' type='password' label='Confirme a senha' name='confirmPassword' autoComplete='confirmPassword' autoFocus />
 					
-          <FormControlLabel control={<Checkbox value='remember' color='primary' />} label='Aceito os termos ...' />
+          <FormControlLabel control={<Checkbox value='remember' color='primary' />} label='Termos de contrato ...' />
+          <Link href='http://localhost:3000/notfound'>clique aqui</Link>
 					
           <Button
 						type='submit'
