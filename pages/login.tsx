@@ -13,6 +13,7 @@ import {
 	Button,
 	Snackbar,
 } from '@mui/material';
+import axios from 'axios';
 
 
 const theme = createTheme();
@@ -48,6 +49,18 @@ export default function LoginPage() {
 		console.log(data.get('email'));
 		setName(data.get('email'));
 		setPassword(data.get('value'));
+		axios.post('http://localhost:3000/auth/login', {
+				email,
+				password
+			}).then((response) => {
+				console.log(response)
+				if (response.status == 200) {
+					setOpen(true);
+
+				}
+			}).catch((error) => {
+				console.log(error)
+			})
 	};
 	
 	useEffect(() => {
@@ -56,7 +69,7 @@ export default function LoginPage() {
 			setErrorMessage('senha precisa ter no mínimo 6 digitos')
 		} else {
 			setError(false);
-			setOpen(true);
+			
 
 		}
 	}, [password]);
